@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Kerala | Contact</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/site.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container navbar">
+            <a class="brand" href="{{ url_for('home') }}">Explore Kerala</a>
+            <nav aria-label="Primary navigation">
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('destinations') }}">Destinations</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="page-banner">
+                    <p class="section-tag">Contact</p>
+                    <h1>Plan your Kerala getaway with us.</h1>
+                    <p>Fill out the form and share what kind of Kerala trip you are dreaming about. We will help you with destinations, timing, and travel ideas.</p>
+                </div>
+
+                <div class="contact-layout">
+                    <form class="content-card form-card" method="post" action="{{ url_for('contact') }}">
+                        <div class="form-grid">
+                            <div class="form-field">
+                                <label for="name">Full Name</label>
+                                <input id="name" name="name" type="text" placeholder="Enter your name" required>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="email">Email Address</label>
+                                <input id="email" name="email" type="email" placeholder="Enter your email" required>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="phone">Phone Number</label>
+                                <input id="phone" name="phone" type="tel" placeholder="Enter your phone number">
+                            </div>
+
+                            <div class="form-field">
+                                <label for="travel_month">Preferred Travel Month</label>
+                                <select id="travel_month" name="travel_month">
+                                    <option value="">Select a month</option>
+                                    <option>January</option>
+                                    <option>February</option>
+                                    <option>March</option>
+                                    <option>April</option>
+                                    <option>May</option>
+                                    <option>June</option>
+                                    <option>July</option>
+                                    <option>August</option>
+                                    <option>September</option>
+                                    <option>October</option>
+                                    <option>November</option>
+                                    <option>December</option>
+                                </select>
+                            </div>
+
+                            <div class="form-field full-width">
+                                <label for="message">Trip Details</label>
+                                <textarea id="message" name="message" placeholder="Tell us if you want beaches, hill stations, backwaters, family travel, honeymoon plans, or a weekend trip." required></textarea>
+                            </div>
+
+                            <div class="form-field full-width">
+                                <p class="helper-text">We usually reply with destination ideas, ideal travel timing, and a simple trip suggestion.</p>
+                            </div>
+
+                            <div class="form-field full-width">
+                                <button class="btn" type="submit">Send Enquiry</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="contact-side">
+                        <article class="info-card">
+                            <h3>Email</h3>
+                            <p>hello@explorekerala.com</p>
+                        </article>
+                        <article class="info-card">
+                            <h3>Phone</h3>
+                            <p>+91 98765 43210</p>
+                        </article>
+                        <article class="info-card">
+                            <h3>Office Hours</h3>
+                            <p>Monday to Saturday, 9:00 AM to 6:00 PM</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p class="footer-brand">Explore Kerala</p>
+            <p>Discover misty hills, calm backwaters, and sunny shores across God's Own Country.</p>
+        </div>
+    </footer>
+</body>
+</html>

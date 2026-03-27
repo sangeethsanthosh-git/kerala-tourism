@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Kerala | About</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/site.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container navbar">
+            <a class="brand" href="{{ url_for('home') }}">Explore Kerala</a>
+            <nav aria-label="Primary navigation">
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('destinations') }}">Destinations</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="page-banner">
+                    <p class="section-tag">About</p>
+                    <h1>Explore Kerala is a simple guide to Kerala tourism.</h1>
+                    <p>This website highlights the natural beauty of Kerala through a clean beginner-friendly layout focused on popular destinations and easy navigation.</p>
+                </div>
+
+                <div class="info-grid">
+                    <article class="info-card">
+                        <h3>Nature</h3>
+                        <p>Kerala is loved for its mountains, beaches, rivers, forests, and green landscapes.</p>
+                    </article>
+                    <article class="info-card">
+                        <h3>Culture</h3>
+                        <p>Visitors enjoy traditional dance forms, local festivals, heritage spaces, and authentic cuisine.</p>
+                    </article>
+                    <article class="info-card">
+                        <h3>Relaxation</h3>
+                        <p>From backwater stays to quiet hill retreats, Kerala is perfect for peaceful travel experiences.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p class="footer-brand">Explore Kerala</p>
+            <p>Discover misty hills, calm backwaters, and sunny shores across God's Own Country.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Item</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/site.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container navbar">
+            <a class="brand" href="{{ url_for('home') }}">Explore Kerala</a>
+            <nav aria-label="Primary navigation">
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('destinations') }}">Destinations</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="page-banner">
+                    <p class="section-tag">Category</p>
+                    <h1>Category {{ categoryid }}</h1>
+                    <p>Item: {{ item }}</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p class="footer-brand">Explore Kerala</p>
+            <p>Discover misty hills, calm backwaters, and sunny shores across God's Own Country.</p>
+        </div>
+    </footer>
+</body>
+</html>

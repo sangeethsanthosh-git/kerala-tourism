@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Kerala | Destinations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/site.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container navbar">
+            <a class="brand" href="{{ url_for('home') }}">Explore Kerala</a>
+            <nav aria-label="Primary navigation">
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('destinations') }}">Destinations</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="page-banner">
+                    <p class="section-tag">Destinations</p>
+                    <h1>Explore more of Kerala</h1>
+                    <p>Kerala offers hill stations, backwaters, and beaches for every kind of traveler. Here are a few beautiful places to start with.</p>
+                </div>
+
+                <div class="card-grid">
+                    <article class="destination-card">
+                        <img src="{{ url_for('static', filename='images/munnar.svg') }}" alt="Illustration of Munnar tea hills">
+                        <div class="card-content">
+                            <h3>Munnar</h3>
+                            <p>Known for tea gardens, winding roads, and fresh mountain air, Munnar is perfect for a cool and scenic retreat.</p>
+                        </div>
+                    </article>
+
+                    <article class="destination-card">
+                        <img src="{{ url_for('static', filename='images/alleppey.svg') }}" alt="Illustration of Alleppey backwaters">
+                        <div class="card-content">
+                            <h3>Alleppey</h3>
+                            <p>Famous for houseboats and peaceful canals, Alleppey gives travelers a slow and refreshing backwater experience.</p>
+                        </div>
+                    </article>
+
+                    <article class="destination-card">
+                        <img src="{{ url_for('static', filename='images/kovalam.svg') }}" alt="Illustration of Kovalam beach">
+                        <div class="card-content">
+                            <h3>Kovalam</h3>
+                            <p>With golden sand, coastal views, and a laid-back atmosphere, Kovalam is one of Kerala's best beach destinations.</p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="content-card" style="margin-top: 28px;">
+                    <h2>More places to add to your list</h2>
+                    <p>Thekkady, Wayanad, Vagamon, Varkala, and Bekal are also popular choices for wildlife, hills, and coastal views.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p class="footer-brand">Explore Kerala</p>
+            <p>Discover misty hills, calm backwaters, and sunny shores across God's Own Country.</p>
+        </div>
+    </footer>
+</body>
+</html>

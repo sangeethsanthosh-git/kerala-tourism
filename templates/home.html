@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Kerala | Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/site.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/home.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container navbar">
+            <a class="brand" href="{{ url_for('home') }}">Explore Kerala</a>
+            <nav aria-label="Primary navigation">
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('destinations') }}">Destinations</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="container">
+            <div class="hero" id="home">
+                <div class="hero-content">
+                    <p class="hero-badge">Welcome to Explore Kerala</p>
+                    <h1>Discover the calm beauty of Kerala, one destination at a time.</h1>
+                    <p>From tea-covered hills to quiet backwaters and sunny beaches, Kerala offers a peaceful and memorable travel experience for every visitor.</p>
+                    <div class="hero-actions">
+                        <a class="btn" href="{{ url_for('destinations') }}">Start Exploring</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="about">
+            <div class="container about-grid">
+                <div class="content-card">
+                    <p class="section-tag">About Kerala Tourism</p>
+                    <h2>Why Kerala is a favorite travel destination</h2>
+                    <p>Kerala is known for its green landscapes, peaceful waterways, traditional culture, and welcoming hospitality. It is a great place for family vacations, honeymoon trips, nature stays, and short relaxing holidays.</p>
+                    <p>Travelers come here to enjoy cool hill stations, gentle houseboat rides, fresh local food, cultural performances, and sunset views by the sea. Every part of Kerala offers a different and refreshing experience.</p>
+                </div>
+                <div class="highlights-panel">
+                    <h3>Travel Highlights</h3>
+                    <ul class="highlights-list">
+                        <li>Hill stations with tea gardens and misty views</li>
+                        <li>Backwater cruises through quiet village canals</li>
+                        <li>Beautiful beaches with calm evening sunsets</li>
+                        <li>Rich culture, local cuisine, and warm hospitality</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section destinations-section" id="destinations">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-tag">Featured Destinations</p>
+                    <h2>Top places to explore in Kerala</h2>
+                    <p>Start your journey with these three popular destinations, each known for a unique side of Kerala tourism.</p>
+                </div>
+
+                <div class="card-grid">
+                    <article class="destination-card">
+                        <img src="{{ url_for('static', filename='images/munnar.svg') }}" alt="Illustration of the hills and tea gardens in Munnar">
+                        <div class="card-content">
+                            <h3>Munnar</h3>
+                            <p>Munnar is a peaceful hill station famous for its tea plantations, cool weather, and beautiful mountain views.</p>
+                        </div>
+                    </article>
+
+                    <article class="destination-card">
+                        <img src="{{ url_for('static', filename='images/alleppey.svg') }}" alt="Illustration of houseboats on the backwaters in Alleppey">
+                        <div class="card-content">
+                            <h3>Alleppey</h3>
+                            <p>Alleppey is well known for its backwaters, houseboat stays, coconut-lined canals, and relaxing village scenery.</p>
+                        </div>
+                    </article>
+
+                    <article class="destination-card">
+                        <img src="{{ url_for('static', filename='images/kovalam.svg') }}" alt="Illustration of the beach and sea in Kovalam">
+                        <div class="card-content">
+                            <h3>Kovalam</h3>
+                            <p>Kovalam is a popular beach destination with soft sands, ocean views, fresh seafood, and calm coastal charm.</p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="card-actions">
+                    <a class="btn" href="{{ url_for('destinations') }}">View More</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p class="footer-brand">Explore Kerala</p>
+            <p>Discover misty hills, calm backwaters, and sunny shores across God's Own Country.</p>
+        </div>
+    </footer>
+</body>
+</html>

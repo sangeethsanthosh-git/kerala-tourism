@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Kerala</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/site.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container navbar">
+            <a class="brand" href="{{ url_for('home') }}">Explore Kerala</a>
+            <nav aria-label="Primary navigation">
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('destinations') }}">Destinations</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="page-banner">
+                    <p class="section-tag">Base Page</p>
+                    <h1>Explore Kerala layout page</h1>
+                    <p>This page now uses regular HTML structure instead of template inheritance tags.</p>
+                </div>
+
+                <div class="simple-card stack">
+                    <h2>What changed</h2>
+                    <p>The shared design has been moved to a normal CSS file, and the pages no longer depend on template block tags.</p>
+                    <p class="inline-action">
+                        <a class="btn" href="{{ url_for('home') }}">Go to Home</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p class="footer-brand">Explore Kerala</p>
+            <p>Discover misty hills, calm backwaters, and sunny shores across God's Own Country.</p>
+        </div>
+    </footer>
+</body>
+</html>
