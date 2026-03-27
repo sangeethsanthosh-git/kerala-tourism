@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="mx-auto max-w-4xl px-4 py-24 sm:px-6 lg:px-8">
+    <div class="grid overflow-hidden rounded-[2.3rem] border border-forest/10 bg-white shadow-heritage lg:grid-cols-[0.95fr,1.05fr]">
+        <div class="relative min-h-[20rem]">
+            <img src="{{ url_for('static', filename='images/7.jpg') }}" alt="Admin access backdrop" class="absolute inset-0 h-full w-full object-cover">
+            <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,24,18,0.18),rgba(10,24,18,0.72))]"></div>
+            <div class="absolute inset-x-0 bottom-0 p-8 text-white">
+                <span class="section-kicker bg-white/10 text-white before:bg-spice">Admin Access</span>
+                <h1 class="mt-4 font-serif text-5xl">Private submissions viewer</h1>
+            </div>
+        </div>
+
+        <div class="flex items-center px-6 py-12 sm:px-10 lg:px-14">
+            <div class="w-full">
+                <h2 class="font-serif text-5xl text-forest sm:text-6xl">Admin Sign In</h2>
+                <p class="mt-4 max-w-xl text-base leading-8 text-slate-600">Enter the approved admin email to open the page that shows saved contact enquiries. No password is required in this lightweight setup.</p>
+
+                {% if error %}
+                <div class="mt-6 rounded-[1.2rem] border border-red-200 bg-red-50 px-5 py-4 text-sm text-red-700">
+                    {{ error }}
+                </div>
+                {% endif %}
+
+                <form action="{{ url_for('admin_login') }}" method="POST" class="mt-8 space-y-6">
+                    <div>
+                        <label for="email" class="mb-3 block text-[0.72rem] font-bold uppercase tracking-[0.28em] text-forest/70">Admin Email</label>
+                        <input id="email" type="email" name="email" required placeholder="Enter admin email" class="w-full rounded-[1.2rem] border border-forest/10 bg-white/80 px-5 py-4 text-sm text-forest outline-none transition focus:border-spice focus:ring-2 focus:ring-spice/20">
+                    </div>
+                    <button type="submit" class="gold-button inline-flex w-full items-center justify-center rounded-full px-7 py-4 text-sm font-bold uppercase tracking-[0.28em]">Open Submission Viewer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

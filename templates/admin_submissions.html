@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+    <div class="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+        <div>
+            <span class="section-kicker">Admin Dashboard</span>
+            <h1 class="mt-5 font-serif text-5xl text-forest sm:text-6xl">Saved Contact Enquiries</h1>
+            <p class="mt-4 max-w-2xl text-base leading-8 text-slate-600">Logged in as <span class="font-semibold text-forest">{{ admin_email }}</span>. This page reads the saved CSV records and shows the newest entries first.</p>
+        </div>
+        <a href="{{ url_for('admin_logout') }}" class="inline-flex items-center justify-center rounded-full border border-forest/15 px-6 py-3 text-sm font-bold uppercase tracking-[0.24em] text-forest transition hover:bg-forest hover:text-white">Log Out</a>
+    </div>
+
+    {% if submissions %}
+    <div class="overflow-hidden rounded-[2rem] border border-forest/10 bg-white shadow-heritage">
+        <div class="overflow-x-auto">
+            <table class="min-w-full text-left">
+                <thead class="bg-forest text-white">
+                    <tr>
+                        <th class="px-5 py-4 text-[0.68rem] font-bold uppercase tracking-[0.24em]">Name</th>
+                        <th class="px-5 py-4 text-[0.68rem] font-bold uppercase tracking-[0.24em]">Email</th>
+                        <th class="px-5 py-4 text-[0.68rem] font-bold uppercase tracking-[0.24em]">Phone</th>
+                        <th class="px-5 py-4 text-[0.68rem] font-bold uppercase tracking-[0.24em]">Travel Month</th>
+                        <th class="px-5 py-4 text-[0.68rem] font-bold uppercase tracking-[0.24em]">Message</th>
+                        <th class="px-5 py-4 text-[0.68rem] font-bold uppercase tracking-[0.24em]">Created At</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-forest/10">
+                    {% for submission in submissions %}
+                    <tr class="align-top">
+                        <td class="px-5 py-4 text-sm font-semibold text-forest">{{ submission.name }}</td>
+                        <td class="px-5 py-4 text-sm text-slate-600">{{ submission.email }}</td>
+                        <td class="px-5 py-4 text-sm text-slate-600">{{ submission.phone or '-' }}</td>
+                        <td class="px-5 py-4 text-sm text-slate-600">{{ submission.travel_month or '-' }}</td>
+                        <td class="px-5 py-4 text-sm leading-7 text-slate-600">{{ submission.message }}</td>
+                        <td class="px-5 py-4 text-sm text-slate-500">{{ submission.created_at }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% else %}
+    <div class="frost-panel rounded-[2rem] p-8">
+        <h2 class="font-serif text-4xl text-forest">No enquiries yet</h2>
+        <p class="mt-4 max-w-xl text-base leading-8 text-slate-600">Once someone submits the contact form, the saved CSV records will appear here.</p>
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

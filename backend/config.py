@@ -6,6 +6,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 class Config:
+    SECRET_KEY = os.environ.get('SECRET_KEY', 'kerala-tourism-dev-secret')
+    ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', 'sangeethsanthosh80@gamil.com')
     CONTACTS_CSV_PATH = Path(
         os.environ.get('CONTACTS_CSV_PATH', BASE_DIR / 'contacts.csv')
     )
