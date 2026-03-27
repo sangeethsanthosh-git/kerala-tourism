@@ -3,6 +3,8 @@ __pycache__/
 
 .venv/
 venv/
+contacts.db
+contacts.csv
 
 .python-version
 .env

@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: kerala-tourism
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    healthCheckPath: /

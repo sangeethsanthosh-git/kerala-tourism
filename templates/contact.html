@@ -1,111 +1,104 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore Kerala | Contact</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/site.css') }}">
-</head>
-<body>
-    <header class="site-header">
-        <div class="container navbar">
-            <a class="brand" href="{{ url_for('home') }}">Explore Kerala</a>
-            <nav aria-label="Primary navigation">
-                <ul class="nav-links">
-                    <li><a href="{{ url_for('home') }}">Home</a></li>
-                    <li><a href="{{ url_for('destinations') }}">Destinations</a></li>
-                    <li><a href="{{ url_for('about') }}">About</a></li>
-                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
-                </ul>
-            </nav>
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="relative isolate overflow-hidden">
+    <div class="absolute inset-0">
+        <img src="{{ url_for('static', filename='images/6.jpg') }}" alt="Kerala travel planning backdrop" class="h-full w-full object-cover">
+    </div>
+    <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(10,24,18,0.84),rgba(10,24,18,0.58),rgba(10,24,18,0.72))]"></div>
+
+    <div class="relative mx-auto max-w-7xl px-4 py-28 sm:px-6 lg:px-8 lg:py-32">
+        <div class="max-w-3xl text-white" data-aos="fade-up">
+            <span class="section-kicker bg-white/10 text-white before:bg-spice">Plan Your Journey</span>
+            <h1 class="mt-6 font-serif text-6xl leading-[0.94] sm:text-7xl lg:text-[5.2rem]">Tell us how you want Kerala to feel.</h1>
+            <p class="mt-6 max-w-2xl text-base leading-8 text-white/80 sm:text-lg">A slow honeymoon, a family escape, a cultural circuit, a monsoon retreat, or a scenic hill-and-backwater combination. We will help you shape the route around the mood you want.</p>
         </div>
-    </header>
+    </div>
+</section>
 
-    <main>
-        <section class="section">
-            <div class="container">
-                <div class="page-banner">
-                    <p class="section-tag">Contact</p>
-                    <h1>Plan your Kerala getaway with us.</h1>
-                    <p>Fill out the form and share what kind of Kerala trip you are dreaming about. We will help you with destinations, timing, and travel ideas.</p>
+<section class="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+    <div class="grid gap-8 xl:grid-cols-[0.84fr,1.16fr]">
+        <aside class="space-y-6" data-aos="fade-right">
+            <div class="overflow-hidden rounded-[2rem] border border-forest/10 bg-white shadow-heritage">
+                <div class="relative h-72">
+                    <img src="{{ url_for('static', filename='images/Varkala.jpg') }}" alt="Varkala cliff coast" class="absolute inset-0 h-full w-full object-cover">
+                    <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,24,18,0.08),rgba(10,24,18,0.74))]"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                        <p class="text-[0.72rem] font-bold uppercase tracking-[0.28em] text-spice">Curated with care</p>
+                        <h2 class="mt-3 font-serif text-4xl">Every Kerala trip should feel considered.</h2>
+                    </div>
                 </div>
-
-                <div class="contact-layout">
-                    <form class="content-card form-card" method="post" action="{{ url_for('contact') }}">
-                        <div class="form-grid">
-                            <div class="form-field">
-                                <label for="name">Full Name</label>
-                                <input id="name" name="name" type="text" placeholder="Enter your name" required>
-                            </div>
-
-                            <div class="form-field">
-                                <label for="email">Email Address</label>
-                                <input id="email" name="email" type="email" placeholder="Enter your email" required>
-                            </div>
-
-                            <div class="form-field">
-                                <label for="phone">Phone Number</label>
-                                <input id="phone" name="phone" type="tel" placeholder="Enter your phone number">
-                            </div>
-
-                            <div class="form-field">
-                                <label for="travel_month">Preferred Travel Month</label>
-                                <select id="travel_month" name="travel_month">
-                                    <option value="">Select a month</option>
-                                    <option>January</option>
-                                    <option>February</option>
-                                    <option>March</option>
-                                    <option>April</option>
-                                    <option>May</option>
-                                    <option>June</option>
-                                    <option>July</option>
-                                    <option>August</option>
-                                    <option>September</option>
-                                    <option>October</option>
-                                    <option>November</option>
-                                    <option>December</option>
-                                </select>
-                            </div>
-
-                            <div class="form-field full-width">
-                                <label for="message">Trip Details</label>
-                                <textarea id="message" name="message" placeholder="Tell us if you want beaches, hill stations, backwaters, family travel, honeymoon plans, or a weekend trip." required></textarea>
-                            </div>
-
-                            <div class="form-field full-width">
-                                <p class="helper-text">We usually reply with destination ideas, ideal travel timing, and a simple trip suggestion.</p>
-                            </div>
-
-                            <div class="form-field full-width">
-                                <button class="btn" type="submit">Send Enquiry</button>
-                            </div>
+                <div class="space-y-5 p-6">
+                    <p class="text-sm leading-7 text-slate-600">Share a little about your ideal experience and we will help translate that into destinations, travel timing, and a route that actually fits.</p>
+                    <div class="grid gap-4">
+                        {% for item in info_items %}
+                        <div class="frost-panel rounded-[1.4rem] p-4">
+                            <p class="text-[0.68rem] font-bold uppercase tracking-[0.28em] text-spice">{{ item.label }}</p>
+                            <p class="mt-2 text-sm leading-7 text-forest">{{ item.value }}</p>
                         </div>
-                    </form>
-
-                    <div class="contact-side">
-                        <article class="info-card">
-                            <h3>Email</h3>
-                            <p>hello@explorekerala.com</p>
-                        </article>
-                        <article class="info-card">
-                            <h3>Phone</h3>
-                            <p>+91 98765 43210</p>
-                        </article>
-                        <article class="info-card">
-                            <h3>Office Hours</h3>
-                            <p>Monday to Saturday, 9:00 AM to 6:00 PM</p>
-                        </article>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
 
-    <footer class="site-footer">
-        <div class="container footer-content">
-            <p class="footer-brand">Explore Kerala</p>
-            <p>Discover misty hills, calm backwaters, and sunny shores across God's Own Country.</p>
+            <div class="frost-panel-dark rounded-[2rem] p-7 text-white">
+                <p class="text-[0.72rem] font-bold uppercase tracking-[0.28em] text-spice">Good to know</p>
+                <ul class="mt-5 space-y-3 text-sm leading-7 text-white/70">
+                    <li>Tell us whether you prefer hills, water, beaches, heritage, or wellness.</li>
+                    <li>Mention your expected travel window so we can suggest the right route and pace.</li>
+                    <li>If you are unsure, that is fine. We can still suggest a strong starting itinerary.</li>
+                </ul>
+            </div>
+        </aside>
+
+        <div class="frost-panel rounded-[2.2rem] p-6 shadow-heritage sm:p-8 lg:p-10" data-aos="fade-left">
+            <div class="mb-8 flex flex-col gap-5 border-b border-forest/10 pb-8 md:flex-row md:items-end md:justify-between">
+                <div>
+                    <span class="section-kicker">Travel Enquiry</span>
+                    <h2 class="mt-5 font-serif text-5xl text-forest sm:text-6xl">Start your Kerala brief.</h2>
+                </div>
+                <p class="max-w-md text-sm leading-7 text-slate-600">Name and email help us get back to you. The rest helps us make the route more personal.</p>
+            </div>
+
+            <form action="{{ url_for('contact') }}" method="POST" class="grid gap-6">
+                <div class="grid gap-6 md:grid-cols-2">
+                    <div>
+                        <label for="name" class="mb-3 block text-[0.72rem] font-bold uppercase tracking-[0.28em] text-forest/70">Full Name</label>
+                        <input id="name" type="text" name="name" required placeholder="Aravind Nair" class="w-full rounded-[1.2rem] border border-forest/10 bg-white/75 px-5 py-4 text-sm text-forest outline-none transition focus:border-spice focus:ring-2 focus:ring-spice/20">
+                    </div>
+                    <div>
+                        <label for="email" class="mb-3 block text-[0.72rem] font-bold uppercase tracking-[0.28em] text-forest/70">Email Address</label>
+                        <input id="email" type="email" name="email" required placeholder="aravind@example.com" class="w-full rounded-[1.2rem] border border-forest/10 bg-white/75 px-5 py-4 text-sm text-forest outline-none transition focus:border-spice focus:ring-2 focus:ring-spice/20">
+                    </div>
+                </div>
+
+                <div class="grid gap-6 md:grid-cols-2">
+                    <div>
+                        <label for="phone" class="mb-3 block text-[0.72rem] font-bold uppercase tracking-[0.28em] text-forest/70">Phone</label>
+                        <input id="phone" type="text" name="phone" placeholder="+91 ..." class="w-full rounded-[1.2rem] border border-forest/10 bg-white/75 px-5 py-4 text-sm text-forest outline-none transition focus:border-spice focus:ring-2 focus:ring-spice/20">
+                    </div>
+                    <div>
+                        <label for="travel_month" class="mb-3 block text-[0.72rem] font-bold uppercase tracking-[0.28em] text-forest/70">Travel Season</label>
+                        <select id="travel_month" name="travel_month" class="w-full rounded-[1.2rem] border border-forest/10 bg-white/75 px-5 py-4 text-sm text-forest outline-none transition focus:border-spice focus:ring-2 focus:ring-spice/20">
+                            <option value="">Select a Month</option>
+                            {% for value, label in travel_month_options %}
+                            <option value="{{ value }}">{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="message" class="mb-3 block text-[0.72rem] font-bold uppercase tracking-[0.28em] text-forest/70">How should the trip feel?</label>
+                    <textarea id="message" name="message" rows="5" placeholder="We want a calm 5 day route with hills, a houseboat stay, and one heritage stop." class="w-full rounded-[1.5rem] border border-forest/10 bg-white/75 px-5 py-4 text-sm leading-7 text-forest outline-none transition focus:border-spice focus:ring-2 focus:ring-spice/20"></textarea>
+                </div>
+
+                <div class="flex flex-col gap-4 border-t border-forest/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+                    <p class="max-w-xl text-xs uppercase tracking-[0.24em] text-slate-500">Slow travel. Cultural depth. Scenic balance. We will help shape the right combination.</p>
+                    <button type="submit" class="gold-button inline-flex items-center justify-center rounded-full px-7 py-4 text-sm font-bold uppercase tracking-[0.28em]">Send My Request</button>
+                </div>
+            </form>
         </div>
-    </footer>
-</body>
-</html>
+    </div>
+</section>
+{% endblock %}
